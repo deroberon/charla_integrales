@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!--<link rel="stylesheet" href="plugin/toc-progress/toc-progress.css">-->
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Integrales</h1>
+				</section>
+				<section>
+					<h1>Métodos de Integración</h1>
+					<p>Sustituición</p>
+					<p>Partes</p>
+				</section>
+				<section>
+					<h2>Sustituición</h2>
+					<p>Utilizar cuando yo sé calcular la integral de una de las funciones y la derivada de ella es muy cerca de la función que aun resta</p>
+				</section>
+				<section>
+					<h2>Definición</h2>
+				</section>
+				<section>
+					<h2>Ejemplo:</h2>
+					<p>$$\int sen(x)cos^2(x) \delta x$$</p>
+					<p>Tengo dos opciones: </p>
+					<p>sustituir $sen(x)$ por $u$</p>
+					<p>o sustituir $cos(x)$ por $u$ </p>
+				</section>
+				<section>
+					<h2>Sustituindo $sen(x)$</h2>
+					<p>Si $u=sen(x)$, entonces $\delta u=cos(x)\delta x$</p>
+					<p>Dai tenemos: $\delta x=\frac{\delta u}{cos(x)}$</p>
+					<p>Asi, mi integral si queda:</p>
+					<p>$$\int sen(x)cos^2(x)\delta x=\int u.cos(x).\delta u$$</p>
+					<p>Y esto esta malo porque tengo $u$ y $x$ mesclados en una misma integral</p>
+				</section>
+				<section>
+					<h2>Sustituindo $cos(x)$</h2>
+					<p>Si $u=cos(x)$, entonces $\delta u=-sen(x)\delta x$</p>
+					<p>Dai tenemos: $\delta x=\frac{\delta u}{-sen(x)}$</p>
+					<p>Asi, mi integral si queda:</p>
+					<p>$$\int sen(x)cos^2(x)\delta x=\int -u^2.\delta u$$</p>
+					<p>Y esto esta muy bien porque ahora solo tengo $u$ en la integral</p>
+				</section>
+				<section>
+					<h2>Continuando...</h2>
+					<p>$$\int sen(x)cos^2(x)\delta x=\int -u^2.\delta u$$</p>
+					<p>$$\int sen(x)cos^2(x)\delta x=- \int u^2.\delta u$$</p>
+					<p>$$\int sen(x)cos^2(x)\delta x=- \frac{u^3}{3}$$</p>
+					<p>$$\int sen(x)cos^2(x)\delta x=- \frac{cos^3(x)}{3}$$</p>
+				</section>
+				<section>
+					<h2>Ejercicios</h2>
+				</section>
+				<section>
+					<h2>Partes</h2>
+				</section>
+				<section>
+					<h2>Definición</h2>
+					<p>$$\int u\delta v=uv- \int v\delta u$$</p>
+				</section>
+				<section>
+					<h2>Ejemplo</h2>
+				</section>
+				<section>
+					<h2>Otro Ejemplo</h2>
+				</section>
+				<section>
+					<h2>Ejercicios</h2>
+				</section>
+				<section>
+					<h1>Gracias</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				math: {
+		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+		config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+	},
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
+					//{ src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } },
+
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
